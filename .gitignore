@@ -125,3 +125,7 @@ dmypy.json
 venv
 
 /static/
+
+# editors
+.idea/
+.vscode/
