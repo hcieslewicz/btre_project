@@ -48,11 +48,26 @@ def register(reqest):
 
 def login(reqest):
     if reqest.method == 'POST':
-        pass
+        username = reqest.POST['username']
+        password = reqest.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(reqest, user)
+            messages.success(reqest, 'You are now logged in')
+            return redirect('dashboard')
+        else:
+            messages.error(reqest, 'Invalid credentials')
+            redirect('login')
+
     return render(reqest, 'accounts/login.html')
 
 def logout(reqest):
-    return redirect(reqest, 'index')
+    if reqest.method == 'POST':
+        auth.logout(reqest)
+        messages.success(reqest, 'You are now logged out')
+        return redirect('index')
 
 def dashboard(reqest):
     return render(reqest, 'accounts/dashboard.html')
