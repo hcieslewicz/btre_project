@@ -144,3 +144,17 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
     50: 'critical',
 }
+
+# Email config
+EMAIL_HOST = 'smtp.wp.pl'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'hubinator'
+EMAIL_HOST_PASSWORD = 'nesta5'
+EMAIL_USE_TLS = True
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True
+
