@@ -158,3 +158,9 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 
+# Load local production settings
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
